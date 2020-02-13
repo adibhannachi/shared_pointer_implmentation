@@ -27,7 +27,7 @@ SCENARIO( "SHARED POINTER TEST ", "[SHARED POINTER]" ) {
 				}
 			}
         }
-		WHEN( "Make expilicit call to ~shared pointer" ) {
+		WHEN( "MAKE EXPLICIT CALL TO ~shared pointer" ) {
 			ptr1.~shared_ptr();
 			THEN( "COUNTER INCREESE" ) {
 				REQUIRE( ptr1.use_count() == 0 );
