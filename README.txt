@@ -3,7 +3,7 @@
 Code based from the official cppreference :
 https://en.cppreference.com/w/cpp/memory/shared_ptr
 
-I used the documentation to remplement the shared pointer method , and i did some tested using catch2 library .
+I used the documentation to remplement the shared pointer methods , and i did some unit tests using catch2 library .
 
 USED TOOLS :
 	- Visual Studio : as IDE
