@@ -107,7 +107,7 @@ namespace easymile {
     /**
      * Shares ownership of the object managed by rhs.
      * If rhs manages no object, *this manages no object too.
-     * COPY ASSIGNEMENT 
+     *  ASSIGNMENT 
      * */
     shared_ptr& operator=(const shared_ptr& rhs)
     {
@@ -137,7 +137,7 @@ namespace easymile {
     /**
      * Move-assigns a shared_ptr from r.
      * After the assignment, *this contains a copy of the previous state of rhs, and rhs is empty.
-     * MOVE ASSIGNEMENT
+     * MOVE ASSIGNMENT
      * */
     shared_ptr& operator=(shared_ptr&& rhs)
     { 
