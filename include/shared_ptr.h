@@ -156,12 +156,6 @@ namespace easymile {
       return *this;
     };
     
-    friend ostream& operator<<(ostream& os, shared_ptr<T>& sp)
-    { 
-      os << "Address pointed : " << sp.get() << endl;
-      cout << *(sp.m_counter) << endl;
-    }
-
   private:
     long *m_counter{};
     T    *m_ptr;
