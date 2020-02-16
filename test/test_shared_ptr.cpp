@@ -64,9 +64,6 @@ SCENARIO( "SHARED POINTER TEST ", "[SHARED POINTER]" ) {
 			THEN( "COUNTER WILL STILL 2" ) {
 				REQUIRE( ptr5.use_count() == 2 );
 			}
-			THEN( "BOTH POINTER POINT TO THE SOME DATA" ) {
-				REQUIRE(ptr3.get() == ptr5.get() );
-			}
 		}
 	}
 }

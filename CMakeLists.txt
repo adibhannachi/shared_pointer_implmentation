@@ -26,6 +26,7 @@ IF (UNIX)
    cmake_install.cmake
    src/cmake_install.cmake
    test/cmake_install.cmake
+   src/libshared_ptr.a
    core core.*
    gmon.out
    *~
