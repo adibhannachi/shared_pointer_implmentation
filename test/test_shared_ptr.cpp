@@ -21,12 +21,14 @@ SCENARIO( "SHARED POINTER TEST ", "[SHARED POINTER]" ) {
 					REQUIRE(ptr2.get() == ptr1.get());
 				}
 			}
+			
 			WHEN( "IMPLICIT CALL TO  ~shared pointer" ) {
 				THEN( "COUNTER DECREESE" ) {
 					REQUIRE( ptr1.use_count() == 1 );
 				}
 			}
         }
+		
 		WHEN( "MAKE EXPLICIT CALL TO ~shared pointer" ) {
 			ptr1.~shared_ptr();
 			THEN( "COUNTER INCREESE" ) {
@@ -42,6 +44,7 @@ SCENARIO( "SHARED POINTER TEST ", "[SHARED POINTER]" ) {
 			REQUIRE( ptr1->getData() == 5 );
 			
 		}
+		
 		WHEN( "MAKE RESET BY VALUE 2" ) {
 			ptr1.reset (new MyClass(2)); 
 			THEN( "VALUE IS 2" ) {
@@ -59,10 +62,23 @@ SCENARIO( "SHARED POINTER TEST ", "[SHARED POINTER]" ) {
 
 		easymile::shared_ptr<MyClass> ptr4(ptr3);
 		REQUIRE( ptr3.use_count() == 2 );
-		WHEN( "A SHARED POINTER FOR A RVALUE REFERENCE" ) {
+		
+		WHEN( "A SHARED POINTER BY MOVE CONSTRUCTOR" ) {
 			easymile::shared_ptr<MyClass> ptr5(std::move(ptr3));
 			THEN( "COUNTER WILL STILL 2" ) {
 				REQUIRE( ptr5.use_count() == 2 );
+			}
+			THEN( "INITIAL POINTER WILL BE NULL" ) {
+				REQUIRE( ptr3.use_count() == 0 );
+				REQUIRE( ptr3.get() == nullptr );
+			}
+		}
+		
+		WHEN( "A SHARED POINTER BY MOVE ASSIGNEMENT" ) {
+			ptr4 = std::move(ptr3);
+			THEN( "INITIAL POINTER WILL BE NULL" ) {
+				REQUIRE( ptr3.use_count() == 0 );
+				REQUIRE( ptr3.get() == nullptr );
 			}
 		}
 	}
