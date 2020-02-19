@@ -128,9 +128,11 @@ namespace easymile {
     **/
     shared_ptr(shared_ptr&& rhs)
     {
+		
+	cout << "ADIB " << endl;
       m_ptr = rhs.m_ptr;
-      *m_counter = rhs->m_counter;
-      rhs->m_counter = nullptr;
+      m_counter = rhs.m_counter;
+      rhs.m_counter = nullptr;
       rhs.m_ptr = nullptr;
     };
 
