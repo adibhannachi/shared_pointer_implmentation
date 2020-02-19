@@ -60,7 +60,7 @@ SCENARIO( "SHARED POINTER TEST ", "[SHARED POINTER]" ) {
 		easymile::shared_ptr<MyClass> ptr4(ptr3);
 		REQUIRE( ptr3.use_count() == 2 );
 		WHEN( "A SHARED POINTER FOR A RVALUE REFERENCE" ) {
-			easymile::shared_ptr<MyClass>&& ptr5(std::move(ptr3));
+			easymile::shared_ptr<MyClass> ptr5(std::move(ptr3));
 			THEN( "COUNTER WILL STILL 2" ) {
 				REQUIRE( ptr5.use_count() == 2 );
 			}
