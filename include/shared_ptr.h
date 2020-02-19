@@ -143,6 +143,9 @@ namespace easymile {
      * */
     shared_ptr& operator=(shared_ptr&& rhs)
     { 
+		
+			cout << "HANNACHI " << endl;
+
       if (&rhs != this)
       {
         if (m_counter && m_ptr)
